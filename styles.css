@@ -94,7 +94,7 @@ main {
     width: 100px;
     height: auto;
     cursor: pointer;
-    border: 2px solid #aaa;
+    /* border: 2px solid #aaa;*/
     border-radius: 5px;
     transition: transform 0.2s;
 }
