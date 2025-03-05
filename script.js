@@ -31,7 +31,7 @@ thumbnails.forEach((thumbnail) => {
 });
 
 // Cerrar modal al hacer clic en la "X"
-//closeModal.addEventListener("click", closeModalFunc);
+closeModal.addEventListener("click", closeModalFunc);
 
 // Cerrar modal al hacer clic fuera de la imagen
 modal.addEventListener("click", (e) => {
