@@ -20,7 +20,9 @@ header h1 {
     color: #2c2004; /* Color en hexadecimal */
     /*color: rgb(245, 176, 26);  Color en RGB */
 }
-
+header h2 {
+    font-size: 14px;
+}
 nav ul {
     list-style: none;
     padding: 0;
@@ -44,6 +46,9 @@ main {
     color: #ffbb12;
 }
 
+p {
+  font-size: 14px;
+}
 .hero {
     display: flex;
     justify-content: space-between;
@@ -71,11 +76,72 @@ main {
 
 .content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /*space-between;*/
     margin-top: 20px;
 }
 
 .content article {
+    background: #e2e2e2;
+    padding: 15px;
+    width: 48%;
+    text-align: left; /*center;*/
+    margin: 10px;
+}
+
+.content article2 {
+    background: #e2e2e2;
+    padding: 15px;
+    width: 48%;
+    text-align: left; /*center;*/
+		margin: 10px;
+}
+
+/* Estilos para los artículos con imágenes de fondo */
+.content article:nth-child(1) {
+    background-image: url('images/truck_fleet.jpg'); /* Imagen de fondo para el primer artículo */
+    background-size: cover; /* Ajusta la imagen al tamaño del artículo */
+    background-position: center; /* Centra la imagen */
+    color: white; /* Color del texto para que sea legible sobre la imagen */
+    padding: 20px; /* Ajusta el padding si es necesario */
+    position: relative; /* Para posicionar el contenido sobre la imagen */
+}
+
+.content article:nth-child(2) {
+    background-image: url('images/transporte.jpg'); /* Imagen de fondo para el segundo artículo */
+    background-size: cover; /* Ajusta la imagen al tamaño del artículo */
+    background-position: center; /* Centra la imagen */
+    color: white; /* Color del texto para que sea legible sobre la imagen */
+    padding: 20px; /* Ajusta el padding si es necesario */
+    position: relative; /* Para posicionar el contenido sobre la imagen */
+}
+
+/* Fondo semitransparente para mejorar la legibilidad del texto */
+.content article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 1; /* Coloca el fondo detrás del contenido */
+}
+
+/* Asegura que el contenido esté sobre el fondo semitransparente */
+.content article h3,
+.content article p {
+    position: relative;
+    z-index: 2; /* Coloca el contenido sobre el fondo semitransparente */
+}
+
+
+.content_double {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.content_double article_double {
     background: #e2e2e2;
     padding: 15px;
     width: 48%;
@@ -175,8 +241,13 @@ footer {
     }
 
     .content article {
-        width: 100%;
+        width: 93%;
         margin-bottom: 20px;
-        text-align: center;
+        text-align: left; /*center;*/
+    }
+		.content article2 {
+        width: 93%;
+        margin-bottom: 20px;
+        text-align: left; /*center;*/
     }
 }
