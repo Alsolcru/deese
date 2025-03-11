@@ -1,132 +1,84 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta name="google-site-verification" content="QKlpG7sKqP0SEY2jAKUiKAwz3r2-5XjcXTlfn2cUPkk" />
-<title>Deese. Dise&ntilde;o de Soluciones.</title>
-
-<style>
-body{height:100%;
-   width:100%;
-   background-image:url(images/Nancy_Bourque_02.jpg);/*your background image*/
-   
-
-   background-repeat:no-repeat;/*we want to have one single image not a repeated one*/  
-   background-size:cover;/*this sets the image to fullscreen covering the whole screen*/  
-   /*css hack for ie*/     
-   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/Nancy_Bourque_01.jpg',sizingMethod='scale');
-   -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/aerial-photography-of-city-near-mountain-2017747_01.png',sizingMethod='scale')";
-}
-h1 {
-  width: 70%;
-  margin: auto;
-  color: #000;
-  font-family: 'Lato', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  text-align: left;
-  line-height: 25px;
-}
-h1 span {
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
-}
-
-h2 {
-  width: 70%;
-  margin: auto;
-  color: #000;
-  font-family: 'Lato', sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  text-align: left;
-  line-height: 25px;
-}
-
-h2 span {
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
-}
-
-h3 {
-  width: 70%;
-  margin: auto;
-  color: #000;
-  font-family: 'Lato', sans-serif;
-  font-size: 10px;
-  font-weight: 400;
-  text-align: left;
-  line-height: 25px;
-}
-h3 span {
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
-}
-
-.table1 {
-background: rgba(255,255,255,0.7);
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeEse.cl</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body link="#FFBB11" vlink="#FFBB11" alink="#FF9900">
-<div class="bg">
-<p align="center"><br><br><br><br>
+<body>
+    <header>
+        <h1>Telemetría Vehicular</h1>
+        <nav>
+            <ul><h2>
+                <li><a href="index.html">Inicio</a></li>
+                <li><strong><span style="color: #ffbb12;">Quienes Somos</span></strong></li>
+								<li><a href="contacto.html">Contacto</a></li>
+                <li><a href="http://deese.gpsgate.com">Gestion de Flota</a></li>
+            </h2></ul>
+        </nav>
+    </header>
 
-<table style="width:80%" class='table1'>
-<tr>
-	<td width=60%><IMG SRC="./images/logo_1.1.png" height="142"><br><br></td>
-	<td></td>
-</tr>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Bienvenido a DeEse</h2>
+                <p>..Diseño de Soluciones..</p>
+            </div>
+            <div class="hero-image">
+                <img src="images/logo_1.1_Fondo_Claro_URL.png" alt="Logo DeEse">
+            </div>
+        </section>
 
-<tr>
-	<td width=60% color="black">
-<h1>Somos una empresa fundada en 2013 y nos hemos consolidado en el mercado de tecnologías informáticas.<br><br>
-Nos mueve el espíritu de brindar soluciones justas a las necesidades de todos.<br> 
-Muchas gracias por su interés en DeEse y esperamos brindarle nuestros servicios.</h1><br>
-<h2><a href="index.html"><strong><span>&nbsp;Volver&nbsp;</span></strong></a></h2></font>
-	</td>
-	<td>
-	<h1><strong>Contacto</strong></h1><br>
-	
- <form action="//submit.form" id="ContactUs100" method="post" onsubmit="return ValidateForm(this);">
-<script type="text/javascript">
-function ValidateForm(frm) {
-if (frm.Name.value == "") { alert('Name is required.'); frm.Name.focus(); return false; }
-if (frm.FromEmailAddress.value == "") { alert('Email address is required.'); frm.FromEmailAddress.focus(); return false; }
-if (frm.FromEmailAddress.value.indexOf("@") < 1 || frm.FromEmailAddress.value.indexOf(".") < 1) { alert('Please enter a valid email address.'); frm.FromEmailAddress.focus(); return false; }
-if (frm.Comments.value == "") { alert('Please enter comments or questions.'); frm.Comments.focus(); return false; }
-return true; }
-</script>
-<table style="width:85%;border:0;" cellpadding="8" cellspacing="0">
-<tr> <td>
-<label for="Name">* Nombre</label>
-</td> <td>
-<input name="Name" type="text" maxlength="60" style="width:250px;" />
-</td> </tr> <tr> <td>
-<label for="PhoneNumber">Telefono</label>
-</td> <td>
-<input name="PhoneNumber" type="text" maxlength="43" style="width:250px;" />
-</td> </tr> <tr> <td>
-<label for="FromEmailAddress">* Email</label>
-</td> <td>
-<input name="FromEmailAddress" type="text" maxlength="90" style="width:250px;" />
-</td> </tr> <tr> <td>
-<label for="Comments">* Comentario</label>
-</td> <td>
-<textarea name="Comments" rows="7" cols="40" style="width:350px;"></textarea>
-</td> </tr> <tr> <td>
-* <i>campos requeridos</i>
-</td> <td><h1><span>
-<div style="float:right"><a href="https://www.100forms.com" id="lnk100" title="form to email">form to email</a></div>
-<input name="skip_Submit" type="submit" value="Enviar" />
-<script src="https://www.100forms.com/js/FORMKEY:ZDFK846ZWLWT/SEND:alfonsosoler@gmail.com" type="text/javascript"></script>
-</span></h1></td> </tr>
-</table>
-</form>
-	</td>
-</tr>
-</table>
-</p>
-</div>
+        <section class="content">
+            <article2>
+                <h3>Nuestra Historia</h3>
+                <p>
+                    Todo comenzó con un proyecto de título universitario. Por la pasión a la tecnología, se desarrolló un dispositivo electrónico capaz de comunicarse con el computador de motor de un vehículo. Este pequeño pero poderoso dispositivo leía parámetros clave como la temperatura del motor, el nivel de combustible y otros datos importantes, los combinaba con información de posicionamiento GPS y enviaba todo a un servidor para su visualización en tiempo real. Era el inicio de lo que hoy es <strong>DeEse</strong>.
+                </p>
+                <!-- Galería de imágenes en miniatura -->
+                <div class="gallery">
+                    <img src="images/prototipo.jpg" alt="Imagen 1" class="thumbnail">
+                    <img src="images/pcb_telebyte.jpg" alt="Imagen 2" class="thumbnail">
+                    <img src="images/unidad_telebyte.jpg" alt="Imagen 3" class="thumbnail">
+										<img src="images/mapa_telebyte.jpg" alt="Imagen 3" class="thumbnail">
+                </div>
+                <p>
+                    Lo que empezó como un proyecto académico pronto se convirtió en algo más grande. Decidimos ponerlo a prueba en el mundo real, y así nació oficialmente <strong>DeEse</strong>. En nuestros primeros años, brindamos servicios de telemetría utilizando unidades de rastreo europeas, mientras continuábamos desarrollando y mejorando nuestras propias soluciones. Cada paso nos acercaba más a nuestro objetivo: ofrecer tecnología de punta para la gestión de flotas.
+                </p>
+                <p>
+                    Nuestra dedicación y expertise no pasaron desapercibidos. Una empresa holandesa líder en desarrollo de telemetría nos contactó para ser su soporte técnico en Latinoamérica. Poco después, una reconocida empresa colombiana también confió en nosotros para lo mismo. Estas colaboraciones no solo nos permitieron crecer profesionalmente, sino que también nos brindaron experiencias enriquecedoras y amistades que perduran hasta el día de hoy.
+                </p>
+								<div class="gallery">
+                    <img src="images/Squarell_logo_mob.png" alt="Squarell" class="thumbnail">https://squarell.com/<br>
+										https://lapuerta.com.co
+                    <img src="images/Logo_LPC.png" alt="LaPuerta Colombia" class="thumbnail">
+                </div>
+                <p>
+                    Tras años de fructíferas alianzas y aprendizajes, decidimos centrarnos en <strong>DeEse</strong>, consolidando nuestra propia identidad y ofreciendo soluciones innovadoras y confiables para la gestión de flotas empresariales y el transporte escolar. Hoy, con más de 20 años de experiencia, seguimos comprometidos con nuestra misión: <strong>optimizar la gestión de flotas y brindar seguridad y tranquilidad a través de tecnología de primer nivel</strong>.
+                </p>
+                <h3>¿Por qué elegirnos?</h3>
+                <ul>
+                    <li style="text-align: left;"><strong>Innovación</strong>: Nacimos de un proyecto tecnológico y seguimos innovando cada día.</li>
+                    <li style="text-align: left;"><strong>Experiencia</strong>: Dos décadas de experiencia en el mercado nos respalda.</li>
+                    <li style="text-align: left;"><strong>Colaboraciones internacionales</strong>: Hemos trabajado con empresas líderes en Europa y Latinoamérica.</li>
+                    <li style="text-align: left;"><strong>Compromiso</strong>: Nos apasiona lo que hacemos y nos esforzamos por superar las expectativas de nuestros clientes.</li>
+                </ul>
+            </article2>
+						
+        </section>
+    </main>
+
+    <!-- Div flotante para mostrar la imagen ampliada -->
+    <div id="modal" class="modal">
+        <span id="close-modal" class="close-modal">&times;</span>
+        <img id="modal-image" class="modal-content" src="" alt="Imagen ampliada">
+    </div>
+
+    <footer>
+        <p>&copy; 2025 DeEse. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
