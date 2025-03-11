@@ -96,12 +96,11 @@ p {
 		margin: 10px;
 }
 
-/* Estilos para los artículos con imágenes de fondo */
 .content article:nth-child(1) {
     background-image: url('images/truck_fleet.jpg'); /* Imagen de fondo para el primer artículo */
     background-size: cover; /* Ajusta la imagen al tamaño del artículo */
     background-position: center; /* Centra la imagen */
-    color: white; /* Color del texto para que sea legible sobre la imagen */
+    color: black; /* Color del texto en negro */
     padding: 20px; /* Ajusta el padding si es necesario */
     position: relative; /* Para posicionar el contenido sobre la imagen */
 }
@@ -110,12 +109,12 @@ p {
     background-image: url('images/transporte.jpg'); /* Imagen de fondo para el segundo artículo */
     background-size: cover; /* Ajusta la imagen al tamaño del artículo */
     background-position: center; /* Centra la imagen */
-    color: white; /* Color del texto para que sea legible sobre la imagen */
+    color: black; /* Color del texto en negro */
     padding: 20px; /* Ajusta el padding si es necesario */
     position: relative; /* Para posicionar el contenido sobre la imagen */
 }
 
-/* Fondo semitransparente para mejorar la legibilidad del texto */
+/* Capa blanca semitransparente */
 .content article::before {
     content: '';
     position: absolute;
@@ -123,8 +122,8 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-    z-index: 1; /* Coloca el fondo detrás del contenido */
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco semitransparente */
+    z-index: 1; /* Coloca la capa detrás del contenido */
 }
 
 /* Asegura que el contenido esté sobre el fondo semitransparente */
