@@ -64,14 +64,24 @@ p {
 }
 
 .hero-image {
+	display: flex;
+    align-items: center; /* Centrado vertical */
+	 
     flex: 1;
     text-align: left;
+	 align-items: center;
 }
 
 .hero-image img {
     max-width: 20%;
     height: auto;
     border-radius: 10px;
+}
+
+.div2, .div3 {
+    flex: 1;               /* Ocupan el mismo ancho */
+    /* border: 1px solid #ccc; /* Borde para visualización */
+    /* padding: 15px;         /* Espacio interno */
 }
 
 .content {
@@ -214,8 +224,68 @@ footer {
     margin-top: 20px;
 }
 
+/* Grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Grid items */
+.grid-item {
+    position: relative;
+    padding: 20px;
+    color: black;
+    text-align: left;
+    min-height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Capa semitransparente */
+.grid-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1;
+}
+
+/* Contenido sobre la capa */
+.grid-item h3,
+.grid-item p {
+    position: relative;
+    z-index: 2;
+}
+
+/* Imágenes de fondo para cada artículo */
+.item1 {
+    background-image: url('images/truck_fleet.jpg');
+}
+
+.item2 {
+    background-image: url('images/transporte.jpg');
+}
+
+.item3 {
+    background-image: url('images/cam_domo.jpg');
+}
+
+.item4 {
+    background-image: url('images/home.jpg');
+}
 /* Estilos para móviles */
 @media (max-width: 768px) {
+	.grid-container {
+        grid-template-columns: 1fr;
+    }
+	 
     nav ul li {
         display: block;
         margin: 10px 0;
