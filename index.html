@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeEse - Monitoreo GPS.</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles_contact.css">
 </head>
 <body>
     <header>
@@ -17,7 +17,7 @@
 		</div>
 		<div class="text_hero">
         <h1>Monitoreo GPS Robusto y Confiable.</h1>
-        <h2>Tenga en sus manos tecnología 100% europea con una de las plataformas más<br>completas de gestión de flota y a la vez, simplicidad.<br>Desde 2012 ayudamos a transportistas, empresas y a particulares<br>con eficiencia y protección para sus vehículos.</h2>
+        <h2>Tenga en sus manos tecnología 100% europea con una de las plataformas más<br>completas de gestión de flota y a la vez, simplicidad.<br>Desde 2013 ayudamos a transportistas, empresas y a particulares<br>con eficiencia y protección para sus vehículos.</h2>
         <!-- <a href="#contacto" class="btn">Contáctanos</a> -->
 		  <!-- <a href="https://wa.me/56991590960" class="btn">Contáctanos</a> -->
 		  <a href="#contacto" class="btn" onclick="sendWhatsAppMessage('contacto')">Contáctenos</a>
@@ -88,12 +88,55 @@
     </section>
     
     <div class="container" id="contacto">
+		<div class="contacto">
+		 <div class="contactos" style="text-align: center;">
         <h2 style="text-align: center;">¿Listo para comenzar?</h2>
-        <p style="text-align: center;">Contáctenos hoy mismo y agendemos una demo personalizada.</p>
-        <div style="text-align: center;">
+        <p style="text-align: center;">Contáctenos hoy mismo via WhatsApp o<br>
+		  Formulario y agendemos una demo personalizada.</p>
+        
             <!-- <a href="https://wa.me/56991590960" class="btn">Háblanos por WhatsApp</a> -->
 				<a href="#contacto" class="btn" onclick="sendWhatsAppMessage('contacto')">Háblenos por WhatsApp</a>
         </div>
+		  <div class="contactos">
+		  <form action="//submit.form" id="ContactUs100" method="post" onsubmit="return ValidateForm(this);">
+<script type="text/javascript">
+function ValidateForm(frm) {
+if (frm.Name.value == "") { alert('Name is required.'); frm.Name.focus(); return false; }
+if (frm.FromEmailAddress.value == "") { alert('Email address is required.'); frm.FromEmailAddress.focus(); return false; }
+if (frm.FromEmailAddress.value.indexOf("@") < 1 || frm.FromEmailAddress.value.indexOf(".") < 1) { alert('Please enter a valid email address.'); frm.FromEmailAddress.focus(); return false; }
+if (frm.Comments.value == "") { alert('Please enter comments or questions.'); frm.Comments.focus(); return false; }
+return true; }
+</script>
+<table style="width:85%;border:0;" cellpadding="8" cellspacing="0">
+<tr> <td>
+<label for="Name">* Nombre</label>
+</td> <td>
+<input name="Name" type="text" maxlength="60" style="width:250px;" />
+</td> </tr> <tr> <td>
+<label for="PhoneNumber">Telefono</label>
+</td> <td>
+<input name="PhoneNumber" type="text" maxlength="43" style="width:250px;" />
+</td> </tr> <tr> <td>
+<label for="FromEmailAddress">* Email</label>
+</td> <td>
+<input name="FromEmailAddress" type="text" maxlength="90" style="width:250px;" />
+</td> </tr> <tr> <td>
+<label for="Comments">* Mensaje</label>
+</td> <td>
+<textarea name="Comments" rows="7" cols="40" style="width:350px;"></textarea>
+</td> </tr> <tr> <td>
+* <i>campos requeridos</i>
+</td> <td><h1><span>
+<div style="float:right"><a href="https://www.100forms.com" id="lnk100" title="form to email" target="_blank">form to email</a></div>
+<input name="skip_Submit" type="submit" value="Enviar" class="submit"/>
+<script src="https://www.100forms.com/js/FORMKEY:ZDFK846ZWLWT/SEND:alfonsosoler@gmail.com" type="text/javascript"></script>
+</span></h1></td> </tr>
+</table>
+</form>
+		  
+		  </div>
+		  </div>
+		  
     </div>
     
     <!-- <a href="https://wa.me/56991590960" class="whatsapp-btn">
@@ -126,4 +169,3 @@
     </script>
 </body>
 </html>
-
