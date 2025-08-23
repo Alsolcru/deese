@@ -90,6 +90,8 @@ li {
 .text_hero {
     flex: 0 0 70%;
     text-align: left;
+	 padding: 0 20px; /* Añadir padding lateral */
+    box-sizing: border-box; /* Incluir padding en el cálculo del ancho */
 }
 
 .container-wrapper {
@@ -270,7 +272,75 @@ img {
 }
 
 /* Responsive para móviles */
+@media (max-width: 1090px) {
+    .hero {
+        width: 90% !important; /* Reducir el ancho para pantallas medianas */
+        margin: 0 auto; /* Centrar el contenedor */
+        padding: 40px 15px; /* Ajustar padding */
+    }
+    
+    .text_hero h1 {
+        font-size: 2.2rem; /* Reducir ligeramente el tamaño de fuente */
+    }
+    
+    .text_hero h2 {
+        font-size: 1.2rem; /* Reducir ligeramente el tamaño de fuente */
+    }
+}
+
+@media (max-width: 900px) {
+    .hero {
+        width: 95% !important; /* Aumentar el ancho usable */
+        padding: 30px 10px;
+    }
+    
+    .text_hero h1 {
+        font-size: 2rem;
+    }
+    
+    .text_hero h2 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        width: 100% !important; /* Usar todo el ancho disponible */
+        padding: 30px 15px;
+        box-sizing: border-box;
+    }
+    
+    .hero-container {
+        flex-direction: column; /* Cambiar a disposición vertical */
+        gap: 25px;
+    }
+    
+    .logo-hero, .text_hero {
+        flex: 0 0 100%;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .text_hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .text_hero h2 {
+        font-size: 1.2rem;
+        line-height: 1.4;
+    }
+}
+
 @media (max-width: 600px) {
+	{
+        box-sizing: border-box;
+    }
+    
+    /* Mejorar espaciado general */
+    .container {
+        padding: 20px 15px;
+    }
+	 
     .container {
         flex-direction: column;
         text-align: center;
@@ -279,19 +349,30 @@ img {
     .hero {
         flex-direction: column;
         text-align: center;
-		  padding: 30px 15px; /* Ajuste de padding para móviles */
+        padding: 30px 15px;
+        width: 100%; /* Asegurar que ocupe todo el ancho */
+        margin: 0; /* Eliminar cualquier margen */
+        box-sizing: border-box; /* Incluir padding en el cálculo del ancho */
     }
     
+    .logo-hero, .text_hero {
+        flex: 0 0 100%;
+        width: 100%;
+        padding: 0 10px; /* Pequeño padding lateral para consistencia */
+        box-sizing: border-box;
+    }
+    
+    .logo-hero img {
+        max-width: 80%; /* Reducir ligeramente el logo en móvil */
+        margin: 0 auto; /* Centrar la imagen */
+        display: block;
+    }
+	 
 	 .hero-container {
         flex-direction: column;
         gap: 30px; /* Espaciado entre elementos apilados */
     }
 	 
-    .logo-hero, .text_hero {
-        flex: 0 0 90%;
-        width: 90%;
-    }
-    
     .main-text {
         font-size: 2.5rem;
     }
@@ -318,5 +399,42 @@ img {
     .text_hero h2 {
         font-size: 1.2rem;
         line-height: 1.6;
+    }
+	 
+	 #ContactUs100 {
+        width: 100% !important;
+        max-width: 100%;
+    }
+    
+    #ContactUs100 table {
+        width: 100% !important;
+        max-width: 100%;
+    }
+    
+    #ContactUs100 input[type="text"],
+    #ContactUs100 textarea {
+        width: 100% !important;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    #ContactUs100 td {
+        display: block;
+        width: 100% !important;
+        padding: 5px 0;
+    }
+    
+    #ContactUs100 td:first-child {
+        text-align: left;
+        padding-top: 15px;
+    }
+    
+    .contacto {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .contactos {
+        width: 100%;
     }
 }
