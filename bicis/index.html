@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Deese GPS</title>
+  <title>DeEse GPS</title>
 
   <!-- Fuente moderna -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -313,6 +313,28 @@
         justify-content: center;
       }
     }
+	.two-columns {
+      display: flex;
+      flex-wrap: wrap;               /* Permite apilar en móvil */
+      max-width: 1100px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      overflow: hidden;              /* para que la imagen respete bordes */
+      transition: box-shadow 0.3s;
+    }
+	.col-text {
+        padding: 35px 28px;
+    }
+	.col-image {
+      flex: 1 1 45%;                /* 45% del ancho */
+      min-height: 320px;            /* altura mínima para que se vea bien */
+      background: #eef3fc;          /* color de respaldo mientras carga */
+      display: flex;
+      align-items: stretch;
+    }
+	
   </style>
 </head>
 <body>
@@ -357,6 +379,34 @@
     </div>
   </section>
 
+  <section class="contact-section">
+    <div class="contact-wrapper">
+      <h2>Especificaciones equipo</h2>
+
+      <div class="email-icons">
+	  <div class="two-columns">
+		<div class="col-text">
+        <p class="subtitle">Batería: Integrada 500mAh Li-po.<br>
+		Duracion batería: Almenos 2 años.<br>
+		IP rating: IP66.<br>
+		Temperatura operación: -20 a 60 °c.<br>
+		Humedad de operación: 0-95%HR.<br>
+		Tamaño: 17mm x 46mm.<br>
+		Peso: 17 gr.<br>
+		</div>
+		<div class="col-image">
+		  <!-- Reemplaza src por tu imagen vertical (ej. retrato, gráfico) -->
+		  <img
+			src="images/Equipo.png"
+			alt="Imagen vertical de ejemplo"
+			loading="lazy"
+		  />
+		</div>
+
+	  </div>
+    </div>
+  </section>
+  
   <!-- ===== NUEVA SECCIÓN DE CONTACTO ===== -->
   <section class="contact-section">
     <div class="contact-wrapper">
