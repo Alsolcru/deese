@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Empresa GPS</title>
+
+  <!-- Fuente moderna -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome para los iconos de correo -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #f5f7fb;
+      color: #101828;
+    }
+
+    header {
+      width: 100%;
+      background: white;
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e9eef5;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    .logo span:nth-child(1) {
+      color: #1263ff;
+    }
+
+    .logo span:nth-child(2) {
+      color: #35b24a;
+    }
+
+    nav {
+      display: flex;
+      gap: 35px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1b1f2a;
+      font-weight: 600;
+      transition: .2s;
+    }
+
+    nav a:hover {
+      color: #1263ff;
+    }
+
+    .btn {
+      background: #1263ff;
+      color: white;
+      padding: 14px 26px;
+      border-radius: 18px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: .3s;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(18, 99, 255, .25);
+    }
+
+    .hero {
+      padding: 90px 7%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 68px;
+      line-height: 1;
+      letter-spacing: 5px;
+      margin-bottom: 25px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 22px;
+      line-height: 1.6;
+      color: #5d6678;
+      margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn-outline {
+      border: 2px solid #dce5f2;
+      padding: 14px 24px;
+      border-radius: 18px;
+      text-decoration: none;
+      color: #101828;
+      font-weight: 700;
+      background: white;
+    }
+
+    .hero-image {
+      background: white;
+      border-radius: 40px;
+      padding: 30px;
+      box-shadow: 0 30px 60px rgba(15, 23, 42, .08);
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 24px;
+    }
+
+    .features {
+      padding: 20px 7% 90px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 35px;
+      border-radius: 28px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .04);
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .icon {
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+
+    .card h3 {
+      font-size: 28px;
+      margin-bottom: 14px;
+      letter-spacing: -1px;
+    }
+
+    .card p {
+      color: #667085;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    /* ===== NUEVA SECCIÓN CONTACTO ===== */
+    .contact-section {
+      padding: 20px 7% 80px;
+    }
+
+    .contact-wrapper {
+      background: white;
+      border-radius: 35px;
+      padding: 50px 40px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .04);
+      text-align: center;
+    }
+
+    .contact-wrapper h2 {
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+      color: #101828;
+    }
+
+    .contact-wrapper .subtitle {
+      font-size: 18px;
+      color: #667085;
+      margin-bottom: 30px;
+    }
+
+    .email-icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .email-icons a {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #f0f6ff;
+      padding: 14px 30px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      color: #1263ff;
+      transition: .25s ease;
+      border: 2px solid transparent;
+    }
+
+    .email-icons a i {
+      font-size: 24px;
+    }
+
+    .email-icons a:hover {
+      background: #1263ff;
+      color: white;
+      border-color: #1263ff;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(18, 99, 255, .20);
+    }
+
+    .email-icons a:last-child {
+      background: #eef2f6;
+      color: #3a4a5e;
+    }
+
+    .email-icons a:last-child:hover {
+      background: #3a4a5e;
+      color: white;
+      border-color: #3a4a5e;
+    }
+
+    /* ===== FIN CONTACTO ===== */
+
+    .bottom-banner {
+      margin: 0 7% 80px;
+      background: linear-gradient(90deg, #1263ff, #0048c7);
+      border-radius: 35px;
+      padding: 45px;
+      color: white;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .bottom-banner h2 {
+      font-size: 42px;
+	  margin: 20px;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+	  margin: 20px;
+    }
+
+    .bottom-banner p {
+      opacity: .9;
+	  font-size: 20px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .email-icons a {
+        padding: 12px 24px;
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .contact-wrapper {
+        padding: 30px 20px;
+      }
+
+      .email-icons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .email-icons a {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      DeEse GPS.
+    </div>
+    <a href="https://us.tracksolidpro.com" target="_blank" class="btn">Acceso clientes</a>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Tu bicicleta siempre localizada</h1>
+      <p>A través de GPS con tecnología Bluetooth Low Energy (BLE)&nbsp; y rastréarla en todo el mundo.</p>
+    </div>
+    <div class="hero-image">
+      <img src="images/bicicleta.png" alt="">
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="card">
+      <div class="icon"><img src="images/red.png" alt=""></div>
+      <h3>Red Global</h3>
+      <p>Gracias a una red crowdsourced, cualquier dispositivo con BLE cerca de tu bici ayuda a actualizar su ubicación.</p>
+    </div>
+    <div class="card">
+      <div class="icon"><img src="images/sim.png" alt=""></div>
+      <h3>Sin SIM, sin límites</h3>
+      <p>Funciona en cualquier país sin necesidad de planes de datos.</p>
+    </div>
+    <div class="card">
+      <div class="icon"><img src="images/bateria.png" alt=""></div>
+      <h3>Batería de larga duración</h3>
+      <p>Más de 2 años de autonomía con una pila de alto rendimiento.</p>
+    </div>
+    <div class="card">
+      <div class="icon"><img src="images/resistencia.png" alt=""></div>
+      <h3>Resistencia extrema</h3>
+      <p>Certificación IP66 – resiste lluvia, polvo y golpes.</p>
+    </div>
+  </section>
+
+  <!-- ===== NUEVA SECCIÓN DE CONTACTO ===== -->
+  <section class="contact-section">
+    <div class="contact-wrapper">
+      <h2>Contáctanos</h2>
+      <p class="subtitle">Elige tu plataforma de correo favorita y escríbenos</p>
+
+      <div class="email-icons">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@deese.cl&subject=Información%20-%20GPS%20bicicleta&body=Hola%2C%0A%0AMe%20interesa%20conocer%20más..." target="_blank" title="Enviar por Gmail">
+          <i class="fab fa-google"></i>Gmail
+        </a>
+        <a href="https://outlook.live.com/mail/0/deeplink/compose?to=info@deese.cl&subject=Información%20-%20GPS%20bicicleta&body=Hola%2C%0A%0AMe%20interesa..." target="_blank" title="Enviar por Outlook">
+          <i class="fab fa-microsoft"></i>Outlook
+        </a>
+        <a href="https://compose.mail.yahoo.com/?to=info@deese.cl&subject=Información%20-%20GPS%20bicicleta&body=Hola%2C%0A%0AMe%20interesa..." target="_blank" title="Enviar por Yahoo Mail">
+          <i class="fab fa-yahoo"></i>Yahoo
+        </a>
+        <a href="mailto:info@deese.cl?subject=Información%20-%20GPS%20bicicleta&body=Hola%2C%0A%0AMe%20interesa..." title="Usar mi cliente de correo">
+          <i class="fas fa-envelope"></i>Otro
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- ===== FIN CONTACTO ===== -->
+
+  <section class="bottom-banner">
+    <div>
+      <h2>12+</h2>
+      <p>Años entregando soluciones GPS en Latinoamérica.</p>
+    </div>
+    <div>
+      <h2>100%</h2>
+      <p>Plataforma web moderna compatible con móviles y escritorio.</p>
+    </div>
+  </section>
+
+</body>
+</html>
