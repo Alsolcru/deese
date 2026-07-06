@@ -1,446 +1,231 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DeEse GPS</title>
-
-  <!-- Fuente moderna -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome para los iconos de correo -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: #f5f7fb;
-      color: #101828;
-    }
-
-    header {
-      width: 100%;
-      background: white;
-      padding: 22px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #e9eef5;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .logo {
-      font-size: 42px;
-      font-weight: 800;
-      letter-spacing: -2px;
-    }
-
-    .logo span:nth-child(1) {
-      color: #1263ff;
-    }
-
-    .logo span:nth-child(2) {
-      color: #35b24a;
-    }
-
-    nav {
-      display: flex;
-      gap: 35px;
-      align-items: center;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #1b1f2a;
-      font-weight: 600;
-      transition: .2s;
-    }
-
-    nav a:hover {
-      color: #1263ff;
-    }
-
-    .btn {
-      background: #1263ff;
-      color: white;
-      padding: 14px 26px;
-      border-radius: 18px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: .3s;
-      display: inline-block;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(18, 99, 255, .25);
-    }
-
-    .hero {
-      padding: 90px 7%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: 68px;
-      line-height: 1;
-      letter-spacing: 5px;
-      margin-bottom: 25px;
-      font-weight: 800;
-    }
-
-    .hero p {
-      font-size: 22px;
-      line-height: 1.6;
-      color: #5d6678;
-      margin-bottom: 40px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .btn-outline {
-      border: 2px solid #dce5f2;
-      padding: 14px 24px;
-      border-radius: 18px;
-      text-decoration: none;
-      color: #101828;
-      font-weight: 700;
-      background: white;
-    }
-
-    .hero-image {
-      background: white;
-      border-radius: 40px;
-      padding: 30px;
-      box-shadow: 0 30px 60px rgba(15, 23, 42, .08);
-    }
-
-    .hero-image img {
-      width: 100%;
-      border-radius: 24px;
-    }
-
-    .features {
-      padding: 20px 7% 90px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: white;
-      padding: 35px;
-      border-radius: 28px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, .04);
-      transition: .3s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-    }
-
-    .icon {
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      margin-bottom: 25px;
-    }
-
-    .card h3 {
-      font-size: 28px;
-      margin-bottom: 14px;
-      letter-spacing: -1px;
-    }
-
-    .card p {
-      color: #667085;
-      font-size: 18px;
-      line-height: 1.5;
-    }
-
-    /* ===== NUEVA SECCIÓN CONTACTO ===== */
-    .contact-section {
-      padding: 20px 7% 80px;
-    }
-
-    .contact-wrapper {
-      background: white;
-      border-radius: 35px;
-      padding: 50px 40px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, .04);
-      text-align: center;
-    }
-
-    .contact-wrapper h2 {
-      font-size: 38px;
-      font-weight: 700;
-      letter-spacing: -1px;
-      margin-bottom: 12px;
-      color: #101828;
-    }
-
-    .contact-wrapper .subtitle {
-      font-size: 18px;
-      color: #667085;
-      margin-bottom: 30px;
-    }
-
-    .email-icons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .email-icons a {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: #f0f6ff;
-      padding: 14px 30px;
-      border-radius: 60px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 18px;
-      color: #1263ff;
-      transition: .25s ease;
-      border: 2px solid transparent;
-    }
-
-    .email-icons a i {
-      font-size: 24px;
-    }
-
-    .email-icons a:hover {
-      background: #1263ff;
-      color: white;
-      border-color: #1263ff;
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(18, 99, 255, .20);
-    }
-
-    .email-icons a:last-child {
-      background: #eef2f6;
-      color: #3a4a5e;
-    }
-
-    .email-icons a:last-child:hover {
-      background: #3a4a5e;
-      color: white;
-      border-color: #3a4a5e;
-    }
-
-    /* ===== FIN CONTACTO ===== */
-
-    .bottom-banner {
-      margin: 0 7% 80px;
-      background: linear-gradient(90deg, #1263ff, #0048c7);
-      border-radius: 35px;
-      padding: 45px;
-      color: white;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-    }
-
-    .bottom-banner h2 {
-      font-size: 42px;
-	  margin: 20px;
-      margin-bottom: 8px;
-      letter-spacing: -1px;
-	  margin: 20px;
-    }
-
-    .bottom-banner p {
-      opacity: .9;
-	  font-size: 20px;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 980px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 52px;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .email-icons a {
-        padding: 12px 24px;
-        font-size: 16px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 38px;
-      }
-
-      .contact-wrapper {
-        padding: 30px 20px;
-      }
-
-      .email-icons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .email-icons a {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-	.two-columns {
-      display: flex;
-      flex-wrap: wrap;               /* Permite apilar en móvil */
-      max-width: 1100px;
-      width: 100%;
-      background: #ffffff;
-      border-radius: 32px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-      overflow: hidden;              /* para que la imagen respete bordes */
-      transition: box-shadow 0.3s;
-    }
-	.col-text {
-        padding: 35px 28px;
-    }
-	.col-image {
-      flex: 1 1 45%;                /* 45% del ancho */
-      min-height: 320px;            /* altura mínima para que se vea bien */
-      background: #eef3fc;          /* color de respaldo mientras carga */
-      display: flex;
-      align-items: stretch;
-    }
-	
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DeEse GPS — Rastreador + mantención de tu bicicleta</title>
+  <meta name="description" content="Rastreador GPS BLE para tu bicicleta con servicio de mantención incluido. Dos planes: Esencial $109.980 y Full $139.980. Pedalea tranquilo y con la bici a punto." />
+  <meta property="og:title" content="DeEse GPS — Rastreador + mantención incluida" />
+  <meta property="og:description" content="GPS BLE + servicio de mantención para tu bicicleta. Planes Esencial y Full." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="hero-bike.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Íconos SVG reutilizables -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-bluetooth" viewBox="0 0 24 24"><path d="m7 7 10 10-5 5V2l5 5L7 17"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
+      <symbol id="i-battery" viewBox="0 0 24 24"><path d="M15 7h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2M6 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h7"/><path d="M22 11v2M11 7 8 12h4l-3 5"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 7-8 12-8 12s-8-5-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol>
+      <symbol id="i-login" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></symbol>
+      <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0 5.7 5.7l-9.1 9.1a2.4 2.4 0 1 1-3.4-3.4z"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></symbol>
+    </defs>
+  </svg>
 
-  <header>
-    <div class="logo">
-      DeEse GPS.
-    </div>
-    <a href="https://us.tracksolidpro.com" target="_blank" class="btn">Acceso clientes</a>
-  </header>
+  <main>
+    <!-- HEADER -->
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="brand">DeEse<span class="text-mauve">.</span><small>GPS</small></a>
+        <div class="nav-links">
+          <a href="#producto">Producto</a>
+          <a href="#caracteristicas">Características</a>
+          <a href="#planes">Planes</a>
+          <a href="#especificaciones">Specs</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+        <div class="nav-cta">
+          <a href="https://us.tracksolidpro.com/resource/dev/index.html?t=247568#/login" target="_blank" rel="noopener" class="btn btn-mauve hide-sm">
+            <svg class="icon"><use href="#i-login"/></svg> Acceso clientes
+          </a>
+          <a href="#comprar" class="btn btn-primary">
+            Comprar <svg class="icon"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </nav>
+    </header>
 
-  <section class="hero">
-    <div>
-      <h1>Tu bicicleta siempre localizada</h1>
-      <p>A través de GPS con tecnología Bluetooth Low Energy (BLE)&nbsp; y rastréarla en todo el mundo.</p>
-    </div>
-    <div class="hero-image">
-      <img src="images/bicicleta.png" alt="">
-    </div>
-  </section>
+    <!-- HERO -->
+    <section id="producto" class="section hero">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow"><svg class="icon icon-sm"><use href="#i-pin"/></svg> GPS BLE + mantención incluida</span>
+          <h1>Tu bicicleta, <em>siempre</em> localizada.</h1>
+          <p class="lead">Un pequeño rastreador GPS con red global <strong>más un servicio de mantención</strong> para dejar tu bici a punto. Pedalea tranquilo: sabes dónde está y anda perfecta.</p>
+          <div class="hero-ctas">
+            <a href="#planes" class="btn btn-primary btn-lg"><svg class="icon"><use href="#i-bag"/></svg> Ver planes</a>
+            <a href="https://wa.me/56900000000" target="_blank" rel="noopener" class="btn btn-ghost btn-lg"><svg class="icon"><use href="#i-chat"/></svg> Hablar por WhatsApp</a>
+          </div>
+          <div class="hero-stats">
+            <div><div class="num">12+</div>años en GPS LATAM</div>
+            <div><div class="num">+2</div>años de batería</div>
+            <div><div class="num">17g</div>discreto, casi invisible</div>
+          </div>
+        </div>
+        <div class="hero-media">
+          <div class="frame">
+            <img src="hero-bike.jpg" alt="Bicicleta urbana junto a una pared lavanda al atardecer" width="1280" height="1280" />
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section class="features">
-    <div class="card">
-      <div class="icon"><img src="images/red.png" alt=""></div>
-      <h3>Red Global</h3>
-      <p>Gracias a una red crowdsourced, cualquier dispositivo con BLE cerca de tu bici ayuda a actualizar su ubicación.</p>
-    </div>
-    <div class="card">
-      <div class="icon"><img src="images/sim.png" alt=""></div>
-      <h3>Sin SIM, sin límites</h3>
-      <p>Funciona en cualquier país sin necesidad de planes de datos.</p>
-    </div>
-    <div class="card">
-      <div class="icon"><img src="images/bateria.png" alt=""></div>
-      <h3>Batería de larga duración</h3>
-      <p>Más de 2 años de autonomía con una pila de alto rendimiento.</p>
-    </div>
-    <div class="card">
-      <div class="icon"><img src="images/resistencia.png" alt=""></div>
-      <h3>Resistencia extrema</h3>
-      <p>Certificación IP66 – resiste lluvia, polvo y golpes.</p>
-    </div>
-  </section>
+    <!-- FEATURES -->
+    <section id="caracteristicas" class="section gap-32">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow-text">Por qué DeEse</span>
+          <h2>Pensado para que <em>no pienses</em> en él.</h2>
+        </div>
+        <div class="features">
+          <div class="feature"><div class="icon-wrap"><svg class="icon"><use href="#i-globe"/></svg></div><h3>Red global crowdsourced</h3><p>Millones de dispositivos con BLE actualizan la ubicación de tu bici en cualquier ciudad del mundo.</p></div>
+          <div class="feature"><div class="icon-wrap"><svg class="icon"><use href="#i-bluetooth"/></svg></div><h3>Sin SIM, sin fronteras</h3><p>Sin plan de datos. Sin contratos. Funciona apenas la enciendes, en Santiago o en Berlín.</p></div>
+          <div class="feature"><div class="icon-wrap"><svg class="icon"><use href="#i-battery"/></svg></div><h3>+2 años de batería</h3><p>Pila de alto rendimiento integrada. La instalas una vez y te olvidas por años.</p></div>
+          <div class="feature"><div class="icon-wrap"><svg class="icon"><use href="#i-shield"/></svg></div><h3>Resistencia IP66</h3><p>Lluvia, polvo, golpes y temperaturas de -20 °C a 60 °C. Hecho para vivir afuera.</p></div>
+        </div>
+      </div>
+    </section>
 
-  <section class="contact-section">
-    <div class="contact-wrapper">
-      <h2>Especificaciones equipo</h2>
+    <!-- PLANS -->
+    <section id="planes" class="section gap-32">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow-text">Planes</span>
+          <h2>GPS + mantención, <em>todo incluido</em>.</h2>
+          <p>Elige el plan que va con tu bici. Ambos incluyen el rastreador DeEse GPS y el servicio de mantención realizado por nuestro taller de confianza.</p>
+        </div>
 
-      <div class="email-icons">
-	  <div class="two-columns">
-		<div class="col-text">
-        <p class="subtitle">Batería: Integrada 500mAh Li-po.<br>
-		Duracion batería: Almenos 2 años.<br>
-		IP rating: IP66.<br>
-		Temperatura operación: -20 a 60 °c.<br>
-		Humedad de operación: 0-95%HR.<br>
-		Tamaño: 17mm x 46mm.<br>
-		Peso: 17 gr.<br>
-		</div>
-		<div class="col-image">
-		  <!-- Reemplaza src por tu imagen vertical (ej. retrato, gráfico) -->
-		  <img
-			src="images/Equipo.png"
-			alt="Imagen vertical de ejemplo"
-			loading="lazy"
-		  />
-		</div>
+        <div class="plans-grid">
+          <div class="plan">
+            <div class="tag"><svg class="icon icon-sm"><use href="#i-wrench"/></svg> Plan Esencial</div>
+            <div class="price-row"><span class="price">$109.980</span><span class="price-cur">CLP</span></div>
+            <p class="tagline">GPS DeEse + mantención esencial de tu bici.</p>
+            <ul>
+              <li><svg class="icon check"><use href="#i-check"/></svg>Lavado del marco y ruedas por separado</li>
+              <li><svg class="icon check"><use href="#i-check"/></svg>Cambio de piolas y fundas si es necesario (frenos mecánicos)</li>
+              <li><svg class="icon check"><use href="#i-check"/></svg>Ajuste de frenos y cambios</li>
+              <li><svg class="icon check"><use href="#i-check"/></svg>Lubricación de la transmisión</li>
+            </ul>
+            <p class="note">+ $10.000 si el cableado es interno.</p>
+            <div class="plan-ctas">
+              <a href="#comprar" class="btn btn-primary btn-lg"><svg class="icon"><use href="#i-bag"/></svg> Contratar Esencial</a>
+              <a href="https://wa.me/56900000000" target="_blank" rel="noopener" class="btn btn-ghost btn-lg"><svg class="icon"><use href="#i-chat"/></svg> Consultar</a>
+            </div>
+          </div>
 
-	  </div>
-    </div>
-  </section>
-  
-  <!-- ===== NUEVA SECCIÓN DE CONTACTO ===== -->
-  <section class="contact-section">
-    <div class="contact-wrapper">
-      <h2>Contáctanos</h2>
-      <p class="subtitle">Elige tu plataforma de correo favorita y escríbenos</p>
+          <div class="plan featured">
+            <span class="badge"><svg class="icon icon-sm"><use href="#i-sparkles"/></svg> Más completo</span>
+            <div class="tag"><svg class="icon icon-sm"><use href="#i-wrench"/></svg> Plan Full</div>
+            <div class="price-row"><span class="price">$139.980</span><span class="price-cur">CLP</span></div>
+            <p class="tagline">GPS DeEse + mantención completa punto a punto.</p>
+            <ul>
+              <li><svg class="icon check"><use href="#i-check"/></svg>Lavado completo de la bicicleta</li>
+              <li><svg class="icon check"><use href="#i-check"/></svg>Cambio de piolas y fundas si es necesario, y ajuste (frenos mecánicos)</li>
+              <li><svg class="icon check"><use href="#i-check"/></svg>Engrase</li>
+              <li><svg class="icon check"><use href="#i-check"/></svg>Ajuste de cambios</li>
+              <li><svg class="icon check"><use href="#i-check"/></svg>Lavado de dirección</li>
+              <li><svg class="icon check"><use href="#i-check"/></svg>Servicio de motor</li>
+              <li><svg class="icon check"><use href="#i-check"/></svg>Centrado de ruedas</li>
+            </ul>
+            <div class="plan-ctas">
+              <a href="#comprar" class="btn btn-mauve btn-lg"><svg class="icon"><use href="#i-bag"/></svg> Contratar Full</a>
+              <a href="https://wa.me/56900000000" target="_blank" rel="noopener" class="btn btn-outline-light btn-lg"><svg class="icon"><use href="#i-chat"/></svg> Consultar</a>
+            </div>
+          </div>
+        </div>
+        <p class="plans-disclaimer">Precios en pesos chilenos, IVA incluido. El servicio de mantención se coordina tras la compra; el rastreador llega directo a tu casa.</p>
+      </div>
+    </section>
 
-      <div class="email-icons">
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@deese.cl&subject=Información%20-%20GPS%20bicicleta&body=Hola%2C%0A%0AMe%20interesa%20conocer%20más..." target="_blank" title="Enviar por Gmail">
-          <i class="fab fa-google"></i>Gmail
-        </a>
-        <a href="https://outlook.live.com/mail/0/deeplink/compose?to=info@deese.cl&subject=Información%20-%20GPS%20bicicleta&body=Hola%2C%0A%0AMe%20interesa..." target="_blank" title="Enviar por Outlook">
-          <i class="fab fa-microsoft"></i>Outlook
-        </a>
-        <a href="https://compose.mail.yahoo.com/?to=info@deese.cl&subject=Información%20-%20GPS%20bicicleta&body=Hola%2C%0A%0AMe%20interesa..." target="_blank" title="Enviar por Yahoo Mail">
-          <i class="fab fa-yahoo"></i>Yahoo
-        </a>
-        <a href="mailto:info@deese.cl?subject=Información%20-%20GPS%20bicicleta&body=Hola%2C%0A%0AMe%20interesa..." title="Usar mi cliente de correo">
-          <i class="fas fa-envelope"></i>Otro
+    <!-- SPECS -->
+    <section id="especificaciones" class="section gap-32">
+      <div class="specs-grid">
+        <div class="device">
+          <img src="equipo.png" alt="Rastreador GPS DeEse, dispositivo compacto" loading="lazy" />
+          <span class="chip">17 × 46 mm · 17 g</span>
+        </div>
+        <div>
+          <span class="eyebrow-text">El equipo</span>
+          <h2 style="margin-top:.75rem;font-size:clamp(2rem,4vw,3rem);line-height:1.1">17 gramos de tranquilidad.</h2>
+          <p style="margin-top:1rem;max-width:32rem;color:var(--muted-fg)">Discreto, hermético y autónomo. Lo escondes una vez en tu bicicleta y se queda ahí trabajando por años.</p>
+          <dl class="specs-list">
+            <div class="spec"><dt>Batería</dt><dd>500 mAh Li-Po</dd></div>
+            <div class="spec"><dt>Duración</dt><dd>≥ 2 años</dd></div>
+            <div class="spec"><dt>Resistencia</dt><dd>IP66</dd></div>
+            <div class="spec"><dt>Temperatura</dt><dd>-20 a 60 °C</dd></div>
+            <div class="spec"><dt>Humedad</dt><dd>0 — 95% HR</dd></div>
+            <div class="spec"><dt>Tamaño</dt><dd>17 × 46 mm</dd></div>
+            <div class="spec"><dt>Peso</dt><dd>17 gramos</dd></div>
+            <div class="spec"><dt>Conectividad</dt><dd>Bluetooth LE</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / CONTACT -->
+    <section id="contacto" class="section gap-32">
+      <div class="cta">
+        <div class="cta-inner">
+          <div>
+            <span class="eyebrow-text">Hablemos</span>
+            <h2>Recíbelo en casa.<br />Pedalea tranquilo.</h2>
+            <p>Compras online y te llega directo a tu puerta. Si tienes dudas, escríbenos y te respondemos al tiro.</p>
+          </div>
+          <div class="cta-right">
+            <div class="cta-btns">
+              <a href="#comprar" class="btn btn-mauve btn-lg"><svg class="icon"><use href="#i-bag"/></svg> Comprar DeEse GPS</a>
+              <a href="https://wa.me/56900000000" target="_blank" rel="noopener" class="btn btn-outline-light btn-lg"><svg class="icon"><use href="#i-chat"/></svg> WhatsApp directo</a>
+            </div>
+            <div class="mail-block">
+              <div class="mail-label"><svg class="icon icon-sm"><use href="#i-mail"/></svg> Escríbenos a info@deese.cl</div>
+              <div class="mail-grid">
+                <a class="btn-mail" target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&fs=1&to=info@deese.cl&subject=Informaci%C3%B3n%20-%20GPS%20bicicleta">Gmail</a>
+                <a class="btn-mail" target="_blank" rel="noopener" href="https://outlook.live.com/mail/0/deeplink/compose?to=info@deese.cl&subject=Informaci%C3%B3n%20-%20GPS%20bicicleta">Outlook</a>
+                <a class="btn-mail" target="_blank" rel="noopener" href="https://compose.mail.yahoo.com/?to=info@deese.cl&subject=Informaci%C3%B3n%20-%20GPS%20bicicleta">Yahoo</a>
+                <a class="btn-mail" href="mailto:info@deese.cl?subject=Informaci%C3%B3n%20-%20GPS%20bicicleta">Otro</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <a href="https://us.tracksolidpro.com/resource/dev/index.html?t=247568#/login" target="_blank" rel="noopener" class="client-banner">
+          <div class="txt">
+            <span class="eyebrow-text">¿Ya tienes tu DeEse GPS?</span>
+            <h3>Entra a tu <em>panel de cliente</em></h3>
+            <p>Revisa la ubicación de tu bici, historial de rutas y alertas en TrackSolid.</p>
+          </div>
+          <span class="btn btn-primary">
+            <svg class="icon icon-lg"><use href="#i-login"/></svg> Acceso clientes
+            <svg class="icon icon-lg"><use href="#i-arrow"/></svg>
+          </span>
         </a>
       </div>
-    </div>
-  </section>
-  <!-- ===== FIN CONTACTO ===== -->
-
-  <section class="bottom-banner">
-    <div>
-      <h2>12+</h2>
-      <p>Años entregando soluciones GPS en Latinoamérica.</p>
-    </div>
-    <div>
-      <h2>100%</h2>
-      <p>Plataforma web moderna compatible con móviles y escritorio.</p>
-    </div>
-  </section>
-
+      <div class="footer-bottom">
+        <div class="brand" style="font-family:'Fraunces',serif">DeEse<span class="text-mauve">.</span>GPS</div>
+        <div class="links">
+          <a href="https://us.tracksolidpro.com/resource/dev/index.html?t=247568#/login" target="_blank" rel="noopener">Acceso clientes</a>
+          <span>© 2026 DeEse — 12+ años en GPS LATAM.</span>
+        </div>
+      </div>
+    </footer>
+  </main>
 </body>
 </html>
