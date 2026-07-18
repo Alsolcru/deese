@@ -1,185 +1,524 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-HTJBJDTR94"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	
-	  gtag('config', 'G-HTJBJDTR94');
-	</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeEse - Monitoreo GPS.</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Preload de imagen -->
+    <link rel="preload" as="image" href="/__l5e/assets-v1/2bf965c3-537b-4a88-bd67-ff362a8b2b1a/logo-propuesta-1.png" />
+
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="style.css" data-precedence="default" />
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Sora:wght@600;700;800&amp;display=swap"
+        data-precedence="default"
+    />
+
+    <title>DeEse | Monitoreo GPS</title>
+    <meta name="author" content="DeEse" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="DeEse | Monitoreo GPS" />
+    <meta
+        property="og:description"
+        content="Tecnología GPS europea para particulares, profesionales y flotas en Chile. Desde 2013 entregamos seguridad, control y simplicidad."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+        property="og:image"
+        content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3fefb550-2423-4231-8eac-552f115ea45f/id-preview-79237e72--e694e89b-adb9-4a1d-b686-d8553e07fd22.lovable.app-1783449588128.png"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@deese_cl" />
+    <meta name="twitter:title" content="DeEse | Monitoreo GPS" />
+    <meta
+        name="twitter:description"
+        content="Tecnología GPS europea para particulares, profesionales y flotas en Chile. Desde 2013 entregamos seguridad, control y simplicidad."
+    />
+    <meta
+        name="twitter:image"
+        content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3fefb550-2423-4231-8eac-552f115ea45f/id-preview-79237e72--e694e89b-adb9-4a1d-b686-d8553e07fd22.lovable.app-1783449588128.png"
+    />
+
+    <!-- Descripción estándar -->
+    <meta
+        name="description"
+        content="Tecnología GPS europea para particulares, profesionales y flotas en Chile. Desde 2013 entregamos seguridad, control y simplicidad."
+    />
+
+    <!-- Preload de módulos -->
+    <link rel="modulepreload" href="/assets/index-CGTR0L9u.js" />
+    <link rel="modulepreload" href="/assets/routes-BLII9xEn.js" />
+
+    <!-- Icono -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Conexiones a Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+
+    <!-- Estilos embebidos para el badge y otros (extraídos y formateados) -->
+    <style>
+        @font-face {
+            font-family: 'CameraPlainVariable';
+            src: url('https://cdn.gpteng.co/mcp-widgets/v1/fonts/CameraPlainVariable.woff2') format('woff2');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        #deese-badge {
+            --badge-bg: #1b1b1b;
+            --badge-text: #c5c1b9;
+            --badge-text-hover: #dcdad5;
+            --badge-radius: 6px;
+            --badge-padding: 8px;
+            --badge-gap: 6px;
+            --badge-shadow:
+                0 0 0 1px rgba(0, 0, 0, 0.88),
+                0 1px 0 0 rgba(0, 0, 0, 0.04),
+                0 2px 2px -1px rgba(0, 0, 0, 0.08),
+                0 4px 4px -2px rgba(0, 0, 0, 0.08),
+                0 8px 8px -4px rgba(0, 0, 0, 0.08),
+                0 16px 16px -8px rgba(0, 0, 0, 0.08);
+            --badge-transition-duration: 0.2s;
+            --badge-transition-easing: cubic-bezier(0.16, 1, 0.32, 1);
+            --focus-color: #575ECF;
+            --focus-offset: 2px;
+            --focus-width: 2px;
+
+            position: fixed;
+            bottom: 12px;
+            right: 12px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            z-index: 1000000;
+            background-color: var(--badge-bg) !important;
+            color: var(--badge-text) !important;
+            border-radius: var(--badge-radius);
+            box-shadow: var(--badge-shadow) !important;
+            font-size: 12px;
+            font-family: CameraPlainVariable, "CameraPlainVariable Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 400 !important;
+            text-transform: none !important;
+            font-feature-settings: normal !important;
+            transform: translateZ(0);
+            will-change: transform, opacity;
+        }
+
+        #deese-badge-cta {
+            display: flex;
+            align-items: center;
+            gap: var(--badge-gap);
+            padding: 0 var(--badge-padding);
+            height: 100%;
+            color: inherit;
+            text-decoration: none;
+            white-space: nowrap;
+            border-radius: var(--badge-radius) 0 0 var(--badge-radius);
+            transition:
+                background-color var(--badge-transition-duration) ease,
+                color var(--badge-transition-duration) ease,
+                transform 0.1s ease;
+        }
+
+        #deese-badge-cta:hover {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--badge-text-hover);
+        }
+
+        #deese-badge-cta:active {
+            transform: scale(0.98);
+        }
+
+        #deese-badge-cta:focus {
+            outline: none;
+        }
+
+        #deese-badge-cta:focus-visible {
+            outline: var(--focus-width) solid var(--focus-color);
+            outline-offset: var(--focus-offset);
+            z-index: 1;
+        }
+
+        #deese-badge-text {
+            line-height: 1;
+        }
+
+        #deese-badge-divider {
+            width: 1px;
+            height: 24px;
+            background-color: rgba(255, 255, 255, 0.04);
+            flex-shrink: 0;
+        }
+
+        #deese-badge-close {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            min-height: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 var(--badge-radius) var(--badge-radius) 0;
+            flex-shrink: 0;
+            transition:
+                background-color var(--badge-transition-duration) ease,
+                transform 0.1s ease;
+        }
+
+        #deese-badge-close:hover {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        #deese-badge-close:active {
+            transform: scale(0.92);
+        }
+
+        #deese-badge-close:focus {
+            outline: none;
+        }
+
+        #deese-badge-close:focus-visible {
+            outline: var(--focus-width) solid var(--focus-color);
+            outline-offset: calc(var(--focus-offset) * -1);
+            z-index: 1;
+        }
+
+        #deese-badge-close svg path {
+            fill: var(--badge-text);
+            transition: fill var(--badge-transition-duration) ease;
+        }
+
+        #deese-badge-close:hover svg path {
+            fill: var(--badge-text-hover);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #deese-badge-cta,
+            #deese-badge-close,
+            #deese-badge-close svg path {
+                transition: none;
+            }
+
+            #deese-badge-cta:active,
+            #deese-badge-close:active {
+                transform: none;
+            }
+        }
+
+        @media (prefers-contrast: high) {
+            #deese-badge {
+                --badge-bg: #000;
+                --badge-text: #fff;
+                --badge-text-hover: #fff;
+                border: 2px solid currentColor;
+            }
+
+            #deese-badge-cta:focus-visible,
+            #deese-badge-close:focus-visible {
+                outline-width: 3px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <div class="logo"><strong>DeEse</strong><p>Para bicicletas <a href="https://www.deese.cl/bicis/">
-          aquí.</a></p></div>
-    </header>
-    
-    <section class="hero">
-    <div class="hero-container">
-        <div class="logo-hero">
-            <img src="images/logo_1.1_Fondo_Blanco_Solido.png" alt="Logo DeEse">
+    <!--$-->
+    <div class="min-h-screen bg-background font-sans text-foreground antialiased selection:bg-secondary selection:text-secondary-foreground">
+
+        <!-- Header -->
+        <header class="w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
+            <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-12">
+                <a href="/" class="flex items-center gap-3">
+                    <img
+                    src="Logo 1.2.svg"
+                    alt="Logo DeEse"
+                    class="w-auto object-contain"
+                    />
+                    <!--<span class="hidden text-lg font-bold text-primary md:block">DeEse</span> -->
+                </a>
+
+                <nav class="hidden items-center gap-6 text-sm font-medium text-foreground/80 md:flex">
+                    <a href="#servicios" class="hover:text-primary">Servicios</a>
+                    <a href="#planes" class="hover:text-primary">Planes</a>
+                    <a href="#contacto" class="hover:text-primary">Contacto</a>
+                </nav>
+
+                <a href="#contacto" class="rounded-xl bg-secondary px-4 py-2 text-sm font-bold text-secondary-foreground shadow-sm transition-transform hover:scale-105">
+                    Cotizar
+                </a>
+            </div>
+        </header>
+
+        <!-- Main -->
+        <main class="mx-auto max-w-6xl px-6 py-16 md:px-12 md:py-24">
+
+            <!-- Sección Hero -->
+            <section class="flex flex-col items-center gap-12 lg:flex-row">
+                <div class="space-y-8 lg:w-3/5">
+                    <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+                        <span class="h-2 w-2 animate-pulse rounded-full bg-secondary"></span>
+                        Monitoreo en tiempo real
+                    </div>
+
+                    <h1 class="font-display text-5xl font-bold leading-[1.1] tracking-tight text-primary md:text-6xl">
+                        Monitoreo GPS robusto y confiable para su
+                        <span class="text-accent">flota.</span>
+                    </h1>
+
+                    <p class="max-w-xl text-lg leading-relaxed text-muted-foreground">
+                        Tecnología 100% europea con una de las plataformas más completas en gestión de flota, y a la vez, con simplicidad. Desde 2013 brindamos tranquilidad a transportistas, empresas y particulares con protección para sus vehículos.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#planes" class="rounded-xl bg-secondary px-8 py-4 text-sm font-bold text-secondary-foreground shadow-lg shadow-secondary/20 transition-transform hover:scale-105">
+                            Ver planes de servicio
+                        </a>
+                        <a href="#contacto" class="rounded-xl border-2 border-primary px-8 py-4 text-sm font-bold text-primary transition-all hover:bg-primary hover:text-primary-foreground">
+                            Cotizar flota
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-2/5">
+                    <div class="relative aspect-square overflow-hidden rounded-3xl bg-primary shadow-2xl">
+    <!-- Degradado radial de fondo (opacidad 20%) -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary via-transparent to-transparent opacity-20"></div>
+
+    <!-- Imagen del tile del plano de calles (translúcida) -->
+    <img
+        src="tile.jpg"
+        alt="Plano de calles"
+        class="absolute inset-0 h-full w-full object-cover opacity-40"
+    />
+
+    <!-- (Los dos divs con bordes circulares han sido eliminados) -->
+
+    <!-- Punto y etiqueta VEHÍCULO ACTIVO -->
+    <div class="absolute left-[60%] top-[40%] flex flex-col items-center">
+        <!-- <div class="h-4 w-4 rounded-full bg-secondary ring-8 ring-secondary/20 shadow-[0_0_20px_var(--color-secondary)]"></div> -->
+		<div class="h-4 w-4 rounded-full bg-primary ring-8 ring-secondary/20 shadow-[0_0_20px_var(--color-primary)]"></div>
+        <div class="mt-2 rounded-lg bg-white px-3 py-1 text-[10px] font-bold text-primary shadow-xl">
+            ABCD-12&nbsp;&nbsp;ACTIVO
         </div>
-        <div class="text_hero">
-            <h1>Monitoreo GPS Robusto y Confiable.</h1>
-            <h2>Tenga en sus manos tecnología 100% europea con una de las plataformas más completas de gestión de flota y a la vez, simplicidad.<br>Desde 2013 ayudamos a transportistas, empresas y a particulares con eficiencia y protección para sus vehículos.</h2>
+    </div>
+</div>
+                </div>
+            </section>
+
+            <!-- Sección Servicios -->
+            <section id="servicios" class="mt-24 space-y-12">
+                <div class="space-y-4 text-center">
+                    <h2 class="font-display text-3xl font-bold uppercase tracking-wide text-primary">
+                        Entregamos las alertas que Ud. necesita
+                    </h2>
+                    <p class="mx-auto max-w-2xl text-lg text-muted-foreground">
+                        Somos expertos en GPS. Adecuamos nuestra plataforma a la manera como Ud. usa sus vehículos, configurándole automatizaciones precisas.
+                    </p>
+                    <div class="mx-auto h-1.5 w-24 rounded-full bg-secondary"></div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                    <!-- Tarjeta 1 -->
+                    <div class="group rounded-3xl border border-border bg-card p-8 shadow-sm transition-all hover:border-accent/30 hover:shadow-xl">
+                        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/5 transition-colors group-hover:bg-secondary">
+                            <svg class="h-7 w-7 text-primary transition-colors group-hover:text-secondary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-primary">Funcionalidad personalizada</h3>
+                        <p class="mt-4 text-sm leading-relaxed text-muted-foreground">
+                            Adecuamos nuestra completa plataforma a la manera como Ud. usa sus vehículos configurándole automatizaciones precisas.
+                        </p>
+                    </div>
+
+                    <!-- Tarjeta 2 -->
+                    <div class="group rounded-3xl border border-border bg-card p-8 shadow-sm transition-all hover:border-accent/30 hover:shadow-xl">
+                        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/5 transition-colors group-hover:bg-secondary">
+                            <svg class="h-7 w-7 text-primary transition-colors group-hover:text-secondary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-primary">Simplicidad ante todo</h3>
+                        <p class="mt-4 text-sm leading-relaxed text-muted-foreground">
+                            Acceda a nuestra plataforma fácilmente desde su celular o computador, sin complicaciones.
+                        </p>
+                    </div>
+
+                    <!-- Tarjeta 3 -->
+                    <div class="group rounded-3xl border border-border bg-card p-8 shadow-sm transition-all hover:border-accent/30 hover:shadow-xl">
+                        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/5 transition-colors group-hover:bg-secondary">
+                            <svg class="h-7 w-7 text-primary transition-colors group-hover:text-secondary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-primary">Localización en tiempo real</h3>
+                        <p class="mt-4 text-sm leading-relaxed text-muted-foreground">
+                            Vea exactamente dónde están sus vehículos en todo momento y deténgalos de forma segura si es necesario.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Planes -->
+<section id="planes" class="mt-24 space-y-12">
+    <div class="space-y-4 text-center">
+        <h2 class="font-display text-3xl font-bold uppercase tracking-wide text-primary">Nuestros planes</h2>
+        <div class="mx-auto h-1.5 w-24 rounded-full bg-secondary"></div>
+    </div>
+
+    <!-- Grid de 2 columnas en pantallas grandes (lg), sin límite de ancho extra -->
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <!-- Plan Particular -->
+        <div class="group relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:border-accent/30 hover:shadow-xl">
+            <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/5 transition-colors group-hover:bg-secondary">
+                <svg class="h-7 w-7 text-primary transition-colors group-hover:text-secondary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <h3 class="font-display text-xl font-bold text-primary">Particular</h3>
+            <p class="mt-4 mb-6 text-lg leading-relaxed text-muted-foreground">
+                Protección ideal para su vehículo personal. Localización exacta y alertas preventivas ante encendido o movimiento.
+            </p>
+            <ul class="mb-8 space-y-3">
+                <li class="flex items-center gap-3 text-sm font-medium text-foreground/80">
+                    <div class="h-1.5 w-1.5 rounded-full bg-secondary"></div>
+                    Rastreo en tiempo real.
+                </li>
+                <li class="flex items-center gap-3 text-sm font-medium text-foreground/80">
+                    <div class="h-1.5 w-1.5 rounded-full bg-secondary"></div>
+                    Alertas instantáneas WhatsApp/Telegram.
+                </li>
+                <li class="flex items-center gap-3 text-sm font-medium text-foreground/80">
+                    <div class="h-1.5 w-1.5 rounded-full bg-secondary"></div>
+                    Bloqueo remoto seguro o inmediato.
+                </li>
+                <li class="flex items-center gap-3 text-sm font-medium text-foreground/80">
+                    <div class="h-1.5 w-1.5 rounded-full bg-secondary"></div>
+                    Historial de 60 días.
+                </li>
+                <li class="flex items-center gap-3 text-sm font-medium text-foreground/80">
+                    <div class="h-1.5 w-1.5 rounded-full bg-secondary"></div>
+                    App móvil incluida.
+                </li>
+            </ul>
+            <!-- <a href="#contacto" class="block w-full rounded-xl py-3 text-center font-bold transition-colors bg-muted text-primary hover:bg-primary hover:text-primary-foreground">
+                Consultar
+            </a> -->
+        </div>
+
+        <!-- Plan Profesional (destacado) -->
+        <div class="group relative overflow-hidden rounded-3xl bg-primary p-8 text-primary-foreground shadow-xl shadow-primary/20 transition-all duration-300">
+            <!-- <div class="absolute right-0 top-0 p-4">
+                <span class="rounded bg-secondary px-2 py-1 text-[10px] font-black uppercase text-secondary-foreground">Popular</span>
+            </div> -->
+            <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 transition-colors group-hover:bg-secondary">
+                <svg class="h-7 w-7 text-white transition-colors group-hover:text-secondary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white">Empresa</h3>
+            <p class="mt-4 mb-6 text-lg leading-relaxed text-white/70">
+                Diseñado para pymes y grandes flotas, enfocado en quienes requieren usos específicos.
+            </p>
+            <ul class="mb-8 space-y-3">
+                <li class="flex items-center gap-3 text-sm font-medium text-white/90">
+                    <div class="h-1.5 w-1.5 rounded-full bg-secondary"></div>
+                    Todas las funciones Particular.
+                </li>
+                <li class="flex items-center gap-3 text-sm font-medium text-white/90">
+                    <div class="h-1.5 w-1.5 rounded-full bg-secondary"></div>
+                    Validación de rutas.
+                </li>
+                <li class="flex items-center gap-3 text-sm font-medium text-white/90">
+                    <div class="h-1.5 w-1.5 rounded-full bg-secondary"></div>
+                    Opción control T° de carga.
+                </li>
+                <li class="flex items-center gap-3 text-sm font-medium text-white/90">
+                    <div class="h-1.5 w-1.5 rounded-full bg-secondary"></div>
+                    Reportes para gestión.
+                </li>
+				<li class="flex items-center gap-3 text-sm font-medium text-white/90">
+                    <div class="h-1.5 w-1.5 rounded-full bg-secondary"></div>
+                    Alertas específicas.
+                </li>
+                <li class="flex items-center gap-3 text-sm font-medium text-white/90">
+                    <div class="h-1.5 w-1.5 rounded-full bg-secondary"></div>
+                    Integración a sistemas existentes.
+                </li>
+            </ul>
+            <!-- <a href="#contacto" class="block w-full rounded-xl bg-secondary py-3 text-center font-bold text-secondary-foreground transition-colors hover:brightness-110">
+                Lo quiero
+            </a> -->
         </div>
     </div>
 </section>
-    
-    <div class="container-wrapper">
-        <div class="container">
-            <div class="titulo"><h2 style="text-align: center;">Entregamos las alertas que Ud. si necesita, somos expertos en GPS</h2></div>
-            
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon"><img src="images/check_1.png" alt="check_mark"></div>
-                    <h3>Funcionalidad Personalizada.</h3>
-                    <p>Adecuamos nuestra completa plataforma a la manera como Ud. usa sus vehículos configurandole automatizaciones precisas.</p>
-                </div>
-                
-                <div class="feature">
-                    <div class="feature-icon"><img src="images/check_2.png" alt="check_mark"></div>
-                    <h3>Simplicidad ante todo.</h3>
-                    <p>A través de métodos muy simples, acceda a nuestra plataforma facilmente desde su celular o computador, sin complicaciones.</p>
-                </div>
-                
-                <div class="feature">
-                    <div class="feature-icon"><img src="images/check_3.png" alt="check_mark"></div>
-                    <h3>Localización en Tiempo Real.</h3>
-                    <p>Vea exactamente dónde están sus vehículos en este momento, desde cualquier dispositivo y detengalos de forma segura si es necesario.</p>
+
+            <!-- Sección Contacto -->
+            <section id="contacto" class="mt-24">
+    <div class="rounded-3xl bg-primary p-8 md:p-12">
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+            <!-- Columna izquierda: texto y WhatsApp -->
+            <div class="space-y-6 text-primary-foreground">
+                <h2 class="font-display text-3xl font-bold">¿Listo para comenzar?</h2>
+                <p class="leading-relaxed text-primary-foreground/80">
+                    Contáctenos hoy mismo vía WhatsApp o escríbanos desde su correo favorito y agendemos una demo personalizada.
+                </p>
+                <a href="https://wa.me/56991590960" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl bg-secondary px-8 py-4 font-bold text-secondary-foreground transition-transform hover:scale-105">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.447-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.955L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+                    </svg>
+                    Háblenos por WhatsApp
+                </a>
+            </div>
+
+            <!-- Columna derecha: enlaces a correo -->
+            <div class="space-y-4 rounded-2xl bg-white p-6 shadow-xl">
+                <p class="text-center text-sm font-medium text-foreground/70">Escríbanos desde su plataforma de correo favorita:</p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@deese.cl&subject=Informaci%C3%B3n%20-%20GPS%20bicicleta" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-primary shadow transition hover:scale-105 hover:bg-primary/5">
+                        Gmail
+                    </a>
+                    <a href="https://outlook.live.com/mail/0/deeplink/compose?to=info@deese.cl&subject=Informaci%C3%B3n%20-%20GPS%20bicicleta" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-primary shadow transition hover:scale-105 hover:bg-primary/5">
+                        Outlook
+                    </a>
+                    <a href="https://compose.mail.yahoo.com/?to=info@deese.cl&subject=Informaci%C3%B3n%20-%20GPS%20bicicleta" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-primary shadow transition hover:scale-105 hover:bg-primary/5">
+                        Yahoo
+                    </a>
+                    <a href="mailto:info@deese.cl?subject=Informaci%C3%B3n%20-%20GPS%20bicicleta" class="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-primary shadow transition hover:scale-105 hover:bg-primary/5">
+                        Otro
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    
-    <section class="plans">
-		<div class="container">
-        <div class="titulo"><h2>Servicios Diferenciados.</h2></div>
-			<div class=features>
-			  <div class="feature">
-					<h3>Particular</h3>
-					<ul style="text-align: left; padding-left: 20px;">
-						 <li>Rastreo en tiempo real.</li>
-						 <li>Alertas inmediatas.</li>
-						 <li>Bloqueo remoto.</li>
-						 <li>Historial de 15 días.</li>
-						 <li>App móvil incluida.<br></li>
-					</ul>
-					<a href="#contacto" class="btn" onclick="sendWhatsAppMessage('servicio1')">Consultar</a>
-			  </div>
-			  
-			  <div class="feature">
-					<h3>Profesional</h3>
-					<ul style="text-align: left; padding-left: 20px;">
-						 <li>Todas las funciones Básicas.</li>
-						 <li>Historial de 45 días.</li>
-						 <li>Alertas personalizadas.</li>
-						 <li>Reportes para gestión.<br><br></li>
-					</ul>
-					<a href="#contacto" class="btn" onclick="sendWhatsAppMessage('servicio2')">Consultar</a>
-			  </div>
-			  
-			  <div class="feature">
-            <h3>Flota</h3>
-            <ul style="text-align: left; padding-left: 20px;">
-                <li>Todas las funciones Profesional.</li>
-                <li>Historial de 90 días.</li>
-                <li>Herramientas gestión de flota.</li>
-                <li>Reportes por caso de uso.<br><br></li>
-            </ul>
-            <a href="#contacto" class="btn" onclick="sendWhatsAppMessage('servicio3')">Consultar</a>
-        </div>
-			</div>
-		</div>
-	</section>
-    
-    <div class="container" id="contacto">
-		<div class="contacto">
-		 <div class="contactos" style="text-align: center;">
-        <h2 style="text-align: center;">¿Listo para comenzar?</h2>
-        <p style="text-align: center;">Contáctenos hoy mismo via WhatsApp o<br>
-		  Formulario y agendemos una demo personalizada.</p>
-        
-            <!-- <a href="https://wa.me/12345678" class="btn">Háblanos por WhatsApp</a> -->
-				<a href="#contacto" class="btn" onclick="sendWhatsAppMessage('contacto')">Háblenos por WhatsApp</a>
-        </div>
-		  <div class="contactos">
-		  <form action="//submit.form" id="ContactUs100" method="post" onsubmit="return ValidateForm(this);">
-<script type="text/javascript">
-function ValidateForm(frm) {
-if (frm.Name.value == "") { alert('Name is required.'); frm.Name.focus(); return false; }
-if (frm.FromEmailAddress.value == "") { alert('Email address is required.'); frm.FromEmailAddress.focus(); return false; }
-if (frm.FromEmailAddress.value.indexOf("@") < 1 || frm.FromEmailAddress.value.indexOf(".") < 1) { alert('Please enter a valid email address.'); frm.FromEmailAddress.focus(); return false; }
-if (frm.Comments.value == "") { alert('Please enter comments or questions.'); frm.Comments.focus(); return false; }
-return true; }
-</script>
-<table style="width:85%;border:0;" cellpadding="8" cellspacing="0">
-<tr> <td>
-<label for="Name">* Nombre</label>
-</td> <td>
-<input name="Name" type="text" maxlength="60" style="width:250px;" />
-</td> </tr> <tr> <td>
-<label for="PhoneNumber">Telefono</label>
-</td> <td>
-<input name="PhoneNumber" type="text" maxlength="43" style="width:250px;" />
-</td> </tr> <tr> <td>
-<label for="FromEmailAddress">* Email</label>
-</td> <td>
-<input name="FromEmailAddress" type="text" maxlength="90" style="width:250px;" />
-</td> </tr> <tr> <td>
-<label for="Comments">* Mensaje</label>
-</td> <td>
-<textarea name="Comments" rows="7" cols="40" style="width:350px;"></textarea>
-</td> </tr> <tr> <td>
-* <i>campos requeridos</i>
-</td> <td><h1><span>
-<div style="float:right"><a href="https://www.100forms.com" id="lnk100" title="form to email" target="_blank">form to email</a></div>
-<input name="skip_Submit" type="submit" value="Enviar" class="submit"/>
-<script src="https://www.100forms.com/js/FORMKEY:ZDFK846ZWLWT/SEND:alfonsosoler@gmail.com" type="text/javascript"></script>
-</span></h1></td> </tr>
-</table>
-</form>
-		  
-		  </div>
-		  </div>
-		  
-    </div>
-    
-    <!-- <a href="https://wa.me/12345678" class="whatsapp-btn">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="40">
-    </a> -->
-    
-    <footer>
-        <p>© 2026 DeEse - Todos los derechos reservados.</p>
-        <p>Servicio de rastreo GPS desde 2013.</p>
-    </footer>
-	 
-	 <script>
-        function sendWhatsAppMessage(serviceType) {
-            const phoneNumber = "+56991590960";
-            
-            // Mensajes predefinidos para cada servicio
-            const messages = {
-                contacto: "Hola, Me interesa recibir información sobre el servicio de GPS.", 
-                servicio1: "Hola! Me interesa el SERVICIO Particular. Por favor contactarme.",
-                servicio2: "Hola! Me interesa el SERVICIO PROFECIONAL. Por favor contactarme.",
-                servicio3: "Hola! Me interesa el SERVICIO FLOTA. Por favor contactarme."
-            };
-            
-            // Obtener el mensaje según el botón presionado
-            const predefinedMessage = messages[serviceType] || "¡Hola! Necesito más información.";
-            const encodedMessage = encodeURIComponent(predefinedMessage);
-            
-            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
-        }
-    </script>
-</body>
+</section>
+</main>
 
+<!-- Footer -->
+<footer class="border-t border-border bg-background">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row md:px-12">
+        <div class="flex items-center gap-3">
+            <img
+            src="Logo 1.2.svg"
+            alt="Logo DeEse"
+            class="h-14 w-auto object-contain"
+            />
+            <span class="text-sm font-semibold text-primary">DeEse — Monitoreo GPS</span>
+        </div>
+        <p class="text-sm text-muted-foreground">© 2026 DeEse. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</div>
+</body>
 </html>
